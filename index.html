@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Chandra | Pharmaceutical Chemistry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #91b8b8;
+            --dark: #36405a;
+            --light: #f8f9fa;
+            --accent: #e74c3c;
+            --highlight: #f1c40f;
+            --bg-gradient: linear-gradient(135deg, #2c3e50, #42aca5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1a252f;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background: rgba(44, 62, 80, 0.98);
+        }
+        
+        header.scrolled .nav-links a {
+            color: white;
+        }
+        
+        header.scrolled .logo {
+            color: white;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.8rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: var(--bg-gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .hero p {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .typed-text {
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            background: white;
+            color: var(--primary);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 2rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin-right: 1rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--bg-gradient);
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            animation: fadeInRight 1s ease;
+        }
+        
+        .about-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.3rem;
+            color: var(--dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.3rem;
+            color: #555;
+        }
+        
+        .achievement-highlight {
+            background-color: rgba(241, 196, 15, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--highlight);
+        }
+        
+        .achievement-highlight h4 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .achievement-highlight p {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        .skills {
+            margin-top: 1.8rem;
+        }
+        
+        .skill-item {
+            margin-bottom: 1.3rem;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .skill-bar {
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--bg-gradient);
+            border-radius: 3px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        /* Education Section */
+        .education {
+            background: #f5f7fa;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 70px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 70px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            top: 30px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -9px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -9px;
+        }
+        
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .timeline-content h4 {
+            font-size: 0.95rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        
+        .timeline-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Experience Section */
+        .experience {
+            background: white;
+        }
+        
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+        
+        .experience-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.8rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .experience-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .experience-card i {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 1.3rem;
+        }
+        
+        .experience-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+        
+        .experience-card p {
+            color: #666;
+            margin-bottom: 1.3rem;
+            font-size: 0.95rem;
+        }
+        
+        .experience-card .date {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Projects Section */
+        .projects {
+            background: #f5f7fa;
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            border: 1px solid #eee;
+        }
+        
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-content {
+            padding: 1.3rem;
+        }
+        
+        .project-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .project-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-tag {
+            background: #e0e0e0;
+            padding: 0.25rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #555;
+        }
+        
+        .project-link {
+            display: inline-block;
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .project-link:hover {
+            color: var(--dark);
+        }
+        
+        .project-link i {
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2.5rem 5%;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.3rem;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.8rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+        }
+        
+        .developer-credit {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .developer-credit a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                text-align: left;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 70px;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-dot {
+                right: auto;
+                left: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .section {
+                padding: 4rem 5%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .section {
+                padding: 3.5rem 5%;
+            }
+            
+            .experience-card, .project-card {
+                padding: 1.5rem;
+            }
+            
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .achievement-highlight {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <a href="#" class="logo">Akash<span> Chandra</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Hi, I'm <span class="typed-text"></span></h1>
+                <h2>M. Pharm Candidate | Pharmaceutical Chemistry</h2>
+                <p>Specializing in Pharmaceutical Chemistry at Jadavpur University (DTC Lab), Kolkata</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/akash-moinak" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>                   
+                    <a href="#" onclick="showEmail()" id="email-link"><i class="fas fa-envelope"></i></a>
+                    <span id="email-text" style="display: none; margin-left: 10px;">akashchandra1611@gmail.com</span>
+                    <script>
+                    function showEmail() {
+                        document.getElementById("email-text").style.display = "inline";
+                    }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- About Section -->
+<section class="section about" id="about">
+    <div class="section-title">
+        <h2>About Me</h2>
+    </div>
+    <div class="about-content">
+        <div class="about-text">
+            <h3>Student of Pharmaceutical Chemistry</h3>
+            <p>I am currently pursuing my M. Pharm in Pharmaceutical Chemistry at Jadavpur University, Kolkata, after completing my B. Pharm from Guru Ghasidas Central University, Bilaspur with an outstanding CGPA of 9.18 (86.40%).</p>
+            
+            <div class="achievement-highlight">
+                <h4>Academic Achievements</h4>
+                <p><strong>GPAT 2024 Qualified:</strong> Percentile - 99.30098, AIR - 275 (Conducted by PCI, NBBMS)</p>
+                <p><strong>CUET PG 2024 Qualified:</strong> Marks - 117 (Conducted by NTA)</p>
+                <p><strong>Department Rank-3:</strong> for Academics at undergraduate level</p>
+            </div>
+            
+            <div class="skills">
+                <h3>My Skills</h3>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Pharmaceutical Chemistry</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>AI-Based Python, Web Development</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Microsoft (Excel, PowerPoint, Word)</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Cheminformatics, Machine Learning</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>                       
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Analytical Techniques</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%;"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="section-title">
+            <h2>My Education</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2024 - 2026</div>
+                <div class="timeline-content">
+                    <h3>M. Pharm (Pharmaceutical Chemistry)</h3>
+                    <h4>Jadavpur University, Kolkata</h4>
+                    <p>Currently pursuing my master's degree specializing in Pharmaceutical Chemistry at DTC Lab.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2020 - 2024</div>
+                <div class="timeline-content">
+                    <h3>B. Pharm</h3>
+                    <h4>Guru Ghasidas Vishwavidyalaya (A Central University), Bilaspur, Chhattisgarh</h4>
+                    <p>Graduated with an outstanding CGPA of 9.18 (86.40%), securing Department Rank-3. Gained comprehensive knowledge in pharmaceutical sciences and research methodologies.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2020</div>
+                <div class="timeline-content">
+                    <h3>Class XII (WBCHSE)</h3>
+                    <h4>Kalna Ambika MM High School, Westbengal</h4>
+                    <p>Scored 81.80% in West Bengal Council of Higher Secondary Education examination.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2018</div>
+                <div class="timeline-content">
+                    <h3>Class X (WBBSE)</h3>
+                    <h4>Kalna Ambika MM High School, Westbengal</h4>
+                    <p>Scored 81.86% in West Bengal Board of Secondary Education examination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="section-title">
+            <h2>My Experience</h2>
+        </div>
+        <div class="experience-container">
+            <div class="experience-card">
+                <i class="fas fa-flask"></i>
+                <h3>Industrial Training</h3>
+                <p>Pharmaceutical Formulation Manufacturing & Quality Control at People's Research Laboratory, Kolkata (July 2024)</p>
+                <p class="date">05/07/2024 - 22/07/2024</p>
+            </div>
+            <div class="experience-card">
+                <i class="fas fa-hospital-user"></i>
+                <h3>Hospital Trainee Pharmacist</h3>
+                <p>Balrampur District Hospital, Chhattisgarh (May-June 2023)</p>
+                <p class="date">May 2023 - Jun 2023</p>
+            </div>
+            <div class="experience-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Certifications</h3>
+                <p>Python for Machine Learning, ChatGPT for Beginners, and AI Tools Workshop (2023-2024)</p>
+                <p class="date">2023 - 2024</p>
+            </div>
+            <div class="experience-card">
+                <i class="fas fa-microscope"></i>
+                <h3>Spectroscopy Workshop</h3>
+                <p>FT-IR & Fluorescence Spectroscopy - Data Acquisition and Analysis at Guru Ghasidas University</p>
+                <p class="date">2023</p>
+            </div>
+            <div class="experience-card">
+                <i class="fas fa-robot"></i>
+                <h3>Machine Learning Workshop by NPTEL</h3>
+                <p> WEKA: Exploring Machine Learning for Healthcare</p>
+                <p class="date">2024</p>
+            </div>
+            <div class="experience-card">
+                <i class="fas fa-brain"></i>
+                <h3>Data Analysis Course by Great Learning</h3>
+                <p>Data Analysis using Microsoft Excel </p>
+                <p class="date">2024</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="section-title">
+            <h2>My Projects</h2>
+        </div>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>ADMET Study on Anti-Cancer Drugs</h3>
+                    <p>Comprehensive ADMET analysis of alkylating agents, anti-metabolites and other classes of anti-cancer drugs using admetSAR software under the guidance of Professor (DR) K.P Namdeo.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Pharmaceutical Chemistry</span>
+                        <span class="project-tag">ADMET</span>
+                        <span class="project-tag">Drug Discovery</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>In Silico Toxicity Study on FDA Approved Drugs</h3>
+                    <p>Evaluation of toxicity profiles for FDA approved drugs used in head and neck cancer treatment using admetSAR software under the guidance of Professor (DR) K.P Namdeo.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Toxicity Analysis</span>
+                        <span class="project-tag">Cheminformatics</span>
+                        <span class="project-tag">Cancer Research</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Website Development For GPAT Gyan</h3>
+                    <p>GPAT Gyan Online Coaching Academy (GPAT, NIPER-JEE, CUET-PG), visit <a href="https://moinak1611.github.io/GPAT-Gyan-Official-Website-/" target="_blank">GPAT Gyan Official Website</a>.</p>
+                    <div class="project-tags">
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Development of Class Management System @GPAT_Gyan</h3>
+                    <p>Secure Class Management System For GPAT Gyan, visit <a href="https://moinak1611.github.io/Class_management_system/" target="_blank">Class Management System</a>.</p>
+                    <div class="project-tags">
+                    <div class="project-tags">                             
+                    </div>
+                        
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Akash<span> Chandra</span></div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/akash-moinak" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:akashchandra1611@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="developer-credit"><b>Developed and Managed by <a href="#"><b>Akash Chandra</b></a></b></p>
+
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Typed.js Animation
+        const typed = new Typed('.typed-text', {
+            strings: ['Akash Chandra'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+        
+        // Scroll Reveal Animation
+        function animateOnScroll() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const experienceCards = document.querySelectorAll('.experience-card');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            timelineItems.forEach(item => {
+                const itemPosition = item.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (itemPosition < screenPosition) {
+                    item.classList.add('visible');
+                }
+            });
+            
+            experienceCards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.classList.add('visible');
+                }
+            });
+            
+            projectCards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+        
+        // Intersection Observer for skill bars
+        const skillsSection = document.querySelector('.skills');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+</body>
+</html>
